@@ -3,13 +3,10 @@ version: 0.2
 phases:
   install:
     commands:
-      - npm install        # Install dependencies
+      - npm install
   build:
     commands:
-      - docker build -t my-image .
-      - echo '[{"name":"my-container","imageUri":"my-account-id.dkr.ecr.us-east-1.amazonaws.com/my-repo:latest"}]' > imagedefinitions.json
-
+      - npm run build
 artifacts:
   files:
-    - '**/*'               # Include all files
-    - imagedefinitions.json # Ensure imagedefinitions.json is included as an artifact
+    - '**/*'
