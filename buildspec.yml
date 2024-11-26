@@ -7,7 +7,7 @@ phases:
       #- $(aws ecr get-login --region ap-south-1 --no-include-email)
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 039289871235.dkr.ecr.us-east-1.amazonaws.com
       - # Replace with this to your repository URI
-      - REPOSITORY_URL=039289871235.dkr.ecr.us-east-1.amazonaws.com/my_demo_repo_2
+      - REPOSITORY_URI=039289871235.dkr.ecr.us-east-1.amazonaws.com/my_demo_repo_2
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
@@ -33,4 +33,4 @@ phases:
 artifacts:
   files:
     - imagedefinitions.json
-    - target/springboot-aws-deploy.jar
+    - target/react-shopping-cart.jar
